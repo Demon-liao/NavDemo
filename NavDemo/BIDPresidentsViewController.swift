@@ -11,12 +11,12 @@ import UIKit
 class BIDPresidentsViewController: BIDSecondLeveViewController ,BIDPresidentDetailViewControllerDelegate{
     var presidents:NSMutableArray!
     
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.title="Detail Edit"
         self.rowImage=UIImage(named: "detailEditIcon")
         var bundle=NSBundle.mainBundle()
-        var plistURL:String=bundle.pathForResource("Presidents", ofType: "plist")
+        var plistURL:String=bundle.pathForResource("Presidents", ofType: "plist")!
         var data:NSData=NSData(contentsOfFile: plistURL)
         var aa:NSDictionary=NSDictionary(contentsOfFile: plistURL)
         println(aa)

@@ -27,11 +27,11 @@ class BIDPresidentDetailViewController: UITableViewController ,UITextFieldDelega
     var initialText:NSString?
     var hasChanges:Bool?
     
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
        // self.tableView(UITableViewStyle.Grouped)
            }
-    init(style: UITableViewStyle) {
+    override init(style: UITableViewStyle) {
         super.init(style: style)
         self.fieldLabels=["Name","From","To","Party"]
         self.navigationItem.leftBarButtonItem=UIBarButtonItem(
@@ -46,6 +46,10 @@ class BIDPresidentDetailViewController: UITableViewController ,UITextFieldDelega
         )
 
     }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
    // init(barButtonSystemItem systemItem: UIBarButtonSystemItem, target: AnyObject!, action: Selector)
     @IBAction func cancel(sender: AnyObject) {
         self.navigationController.popViewControllerAnimated(true)
@@ -53,7 +57,7 @@ class BIDPresidentDetailViewController: UITableViewController ,UITextFieldDelega
     
     @IBAction func save(sender: AnyObject) {
         self.view.endEditing(true)
-        if(hasChanges){
+        if((hasChanges) != nil){
             self.delegate!.presidentDetailViewController(self, didUpdatePresident: self.president)
         }
         self.navigationController.popViewControllerAnimated(true)
@@ -94,7 +98,7 @@ class BIDPresidentDetailViewController: UITableViewController ,UITextFieldDelega
         var lable:UILabel=cell.viewWithTag(kLabelTag) as UILabel
         lable.text=self.fieldLabels[indexPath.row] as String
         var textField:UITextField=cell.viewWithTag(kTextFieldTag) as  UITextField
-        textField.superview.tag=indexPath.row
+        textField.superview!.tag=indexPath.row
         switch (indexPath.row) {
             case kNameRowIndex:
                 textField.text=self.president!.name
@@ -116,7 +120,7 @@ class BIDPresidentDetailViewController: UITableViewController ,UITextFieldDelega
         var _txt=textField.text as NSString
         if(!_txt.isEqualToString(self.initialText)){
             self.hasChanges=true
-            switch (textField.superview.tag){
+            switch (textField.superview!.tag){
                 case kNameRowIndex:
                     self.president!.name=textField.text
                 case kFromYearRowIndex:

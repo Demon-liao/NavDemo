@@ -12,7 +12,7 @@ class BIDDisclosureViewController: BIDSecondLeveViewController {
     var movies:Array<String>=[]
     var detailController:BIDDisclosureDetailViewController!
     let cellInd:NSString="Cell"
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.title="Disclosure Buttons"
         self.rowImage=UIImage(named: "disclosureButtonControllerIcon")

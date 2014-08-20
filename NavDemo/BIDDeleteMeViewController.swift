@@ -11,12 +11,12 @@ import UIKit
 class BIDDeleteMeViewController: BIDSecondLeveViewController {
     var computers:NSMutableArray?
     let cellInd:NSString="Cell"
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!){
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.title="Delete me"
         self.rowImage=UIImage(named: "deleteMeIcon")
         var bundle=NSBundle.mainBundle()
-        var plistURL:NSURL=bundle.URLForResource("computers", withExtension: "plist")
+        var plistURL:NSURL=bundle.URLForResource("computers", withExtension: "plist")!
         self.computers=NSMutableArray(contentsOfURL: plistURL)
         self.navigationItem.rightBarButtonItem=self.editButtonItem()//显示编辑按钮
     }

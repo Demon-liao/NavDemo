@@ -12,7 +12,7 @@ class BIDRowControlsViewController: BIDSecondLeveViewController {
     var characters:NSArray=[]
     let cellInd:NSString="Cell"
     
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.title="Row controls"
         self.rowImage=UIImage(named: "rowControlsIcon")
@@ -56,7 +56,7 @@ class BIDRowControlsViewController: BIDSecondLeveViewController {
             button.setBackgroundImage(buttonDownImage, forState: UIControlState.Highlighted)
             button.setTitle("Tap", forState: UIControlState.Normal)
             button.sizeToFit()
-           // button.addTarget(target: AnyObject?, action: Selector, forControlEvents: <#UIControlEvents#>)
+           // button.addTarget(target: AnyObject?, action: Selector, forControlEvents: UIControlEvents)
             button.addTarget(self, action:Selector("tappedButton:") , forControlEvents: UIControlEvents.TouchUpInside)
             cell.accessoryView=button
         }

@@ -12,7 +12,7 @@ class BIDCheckListViewController: BIDSecondLeveViewController {
     var snacks:NSArray=[]
     var selectedSnacks:Int?
     let cellInd:NSString="Cell"
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.title="Check One"
         self.rowImage=UIImage(named: "checkmarkControllerIcon")

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BIDPresident: NSObject,NSCoding,NSCopying {
+class BIDPresident: NSObject,NSCopying {
     var number:NSInteger!
     var name:NSString!
     var fromYear:NSString!
@@ -28,7 +28,7 @@ class BIDPresident: NSObject,NSCoding,NSCopying {
         encoder.encodeObject(self.toYear,forKey:kPresidentToKey)
         encoder.encodeObject(self.party,forKey:kPresidentPartyKey)
     }
-    init() {
+    override init() {
         
     }
     init(coder decoder: NSCoder!){

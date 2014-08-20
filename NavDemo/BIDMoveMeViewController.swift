@@ -11,7 +11,7 @@ import UIKit
 class BIDMoveMeViewController: BIDSecondLeveViewController {
     var words:Array<String>=[]
       let cellInd:NSString="Cell"
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.title="Move me"
         self.rowImage=UIImage(named: "moveMeIcon")
